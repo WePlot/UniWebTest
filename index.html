@@ -5,18 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UniWebView Test Page</title>
 <script type="text/javascript">
-    // Function to send a message to Unity
-    function sendMessageToUnity() {
-        // Make sure UniWebView is defined in the global namespace
-        if (window.UniWebView) {
-            window.UniWebView.sendMessage(JSON.stringify({
-                message: 'Hello from the webpage!'
-            }));
-        } else {
-            alert('UniWebView is not defined.');
-        }
-    }
-
     // Function that will be called from Unity
     function messageFromUnity(message) {
         alert("Message received from Unity: " + message);
@@ -26,22 +14,10 @@
     function simulateJavaScriptCallback() {
         document.location = "uniwebview://callback?param1=value1&param2=value2";
     }
-
-    // Listen for when Unity wants to call a JS function
-    document.addEventListener("DOMContentLoaded", function() {
-        if (window.UniWebView && window.UniWebView.onMessageReceived) {
-            window.UniWebView.onMessageReceived(function(message) {
-                var data = JSON.parse(message);
-                messageFromUnity(data.message);
-            });
-        }
-    });
-
 </script>
 </head>
 <body>
     <h1>UniWebView Test Page</h1>
-    <button onclick="sendMessageToUnity()">Send Message to Unity</button>
-    <button onclick="simulateJavaScriptCallback()">Simulate JS Callback</button>
+    <button onclick="simulateJavaScriptCallback()">Send Message to Unity and Receive Back</button>
 </body>
 </html>
