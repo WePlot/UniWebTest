@@ -20,6 +20,26 @@
 <body>
     <h1>UniWebView Test Page</h1>
     <button onclick="simulateJavaScriptCallback()">Send Message to Unity and Receive Back</button>
-	<input type="file" name="filename" accept="image/*" />
+	<input type="file" id="fileInput" name="filename" accept="image/*" />
+    <img id="displayImage" src="#" alt="上传的图片">
+    <h1>文件名：</h1>
+    <video autoplay="autoplay" controls="controls" src="https://ccms.oss.jjweb.cn/2023/02/c5a931ecbd7d4fbd8fac08d428b0f2f0.mp4" type="video/mp4">
+    </video>
 </body>
+<script type="text/javascript">
+    document.getElementById('fileInput').addEventListener('change', function(event) {
+    var file = event.target.files[0];
+    var reader = new FileReader();
+
+    reader.onload = function(event) {
+        document.getElementById('displayImage').src = event.target.result;
+    }
+
+    if (file) {
+        reader.readAsDataURL(file);
+    } else {
+        document.getElementById('displayImage').src = '';
+    }
+});
+</script>
 </html>
