@@ -19,6 +19,8 @@
 </head>
 <body>
     <h1>UniWebView Test Page</h1>
+	<h1 id = "TestText" >UniWebView Test Page</h1>
+	<h1 id = "UniText" >UniWebView Test Page</h1>
     <button onclick="simulateJavaScriptCallback()">Send Message to Unity and Receive Back</button>
 	<input type="file" id="fileInput" name="filename" accept="image/*" />
     <img id="displayImage" src="#" alt="上传的图片">
@@ -41,5 +43,8 @@
         document.getElementById('displayImage').src = '';
     }
 });
+
+document.getElementById('TestText').innerHTML = navigator.userAgent;
+
 </script>
 </html>
