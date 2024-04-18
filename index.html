@@ -3,10 +3,22 @@
 <head>
 <meta name="viewport" content="width=device-width">
 <script src="https://cdn.jsdelivr.net/npm/vconsole@latest/dist/vconsole.min.js">
+</script>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 100%; /* 最大宽度为屏幕宽度 */
+    margin: 0 auto;  /* 水平居中 */
+    padding: 20px;
+    box-sizing: border-box;
+  }
+</style>
 </head>
 <body>
-
-</script>
+<div class="container">
 <img src="https://pic1.zhimg.com/v2-606135715669d677006be821fc720d28_r.jpg">
     <video controls="" autoplay="" name="media">
 	    <source src="http://ccms.oss.jjweb.cn/2023/02/c5a931ecbd7d4fbd8fac08d428b0f2f0.mp4" type="video/mp4">
@@ -15,5 +27,6 @@
         // 初始化 vConsole（通常放在这里）  
         var vConsole = new window.VConsole();
     </script>
+</div>
 </body>
 </html>
