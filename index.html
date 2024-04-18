@@ -1,51 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UniWebView Test Page</title>
-<script type="text/javascript">
-    // Function that will be called from Unity
-    function messageFromUnity(message) {
-        alert("Message received from Unity: " + message);
-    }
-
-    // Function to simulate a callback that needs to be captured by UniWebView
-    function simulateJavaScriptCallback() {
-        //document.location = "uniwebview://callback?param1=value1&param2=value2";
-		UnityJSBridge.PostMessage("uniwebview://callback?param1=value1&param2=value2");
-    }
-</script>
+<meta name="viewport" content="width=device-width">
 </head>
 <body>
-    <h1>UniWebView Test Page</h1>
-	<h1 id = "TestText" >UniWebView Test Page</h1>
-	<h1 id = "UniText" >UniWebView Test Page</h1>
-    <button onclick="simulateJavaScriptCallback()">Send Message to Unity and Receive Back</button>
-	<input type="file" id="fileInput" name="filename" accept="image/*" />
-    <img id="displayImage" src="#" alt="上传的图片">
-    <h1>文件名：</h1>
-    <video controls autoplay name="media">
+    <video controls="" autoplay="" name="media">
 	    <source src="http://ccms.oss.jjweb.cn/2023/02/c5a931ecbd7d4fbd8fac08d428b0f2f0.mp4" type="video/mp4">
     </video>
 </body>
-<script type="text/javascript">
-    document.getElementById('fileInput').addEventListener('change', function(event) {
-    var file = event.target.files[0];
-    var reader = new FileReader();
-
-    reader.onload = function(event) {
-        document.getElementById('displayImage').src = event.target.result;
-    }
-
-    if (file) {
-        reader.readAsDataURL(file);
-    } else {
-        document.getElementById('displayImage').src = '';
-    }
-});
-
-document.getElementById('TestText').innerHTML = navigator.userAgent;
-
-</script>
 </html>
