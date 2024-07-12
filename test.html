@@ -18,16 +18,68 @@
 	padding: 0;
   }
 </style>
+</head>
+<body>
 <script>
-// 定义JavaScript函数
 function myFunction() {
   alert('测试按钮!');
 }
+
+function addLoading() {
+  var newDiv = document.createElement("div");
+  newDiv.id = "loadingview";
+  newDiv.style.position = 'fixed';
+  newDiv.style.top = '50%';
+  newDiv.style.left = '50%';
+  newDiv.style.transform = 'translate(-50%, -50%)';
+  newDiv.style.textAlign = 'center';
+  document.body.appendChild(newDiv);
+  
+  var style = document.createElement('style');
+  style.innerHTML = `@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }`;
+  document.head.appendChild(style);
+  
+  var subDiv = document.createElement("div");
+  subDiv.id = "loadingiamge";
+  subDiv.style.border = '8px solid #f3f3f3';
+  subDiv.style.borderTop = '8px solid #3498db';
+  subDiv.style.borderRadius = '50%';
+  subDiv.style.width = '50px';
+  subDiv.style.height = '50px';
+  subDiv.style.animation = 'spin 2s linear infinite';
+  newDiv.appendChild(subDiv);
+}
+
+function addBottom() {
+  var newDiv = document.createElement("div");
+  newDiv.id = "bottomview";
+  newDiv.style.position = 'fixed';
+  newDiv.style.left = '0';
+  newDiv.style.bottom = '0';
+  newDiv.style.width = '100%';
+  newDiv.style.textAlign = 'center';
+  document.body.appendChild(newDiv);
+  
+  var btn = document.createElement("button");
+  btn.innerHTML = 'Back';
+  btn.id = "backbtn";
+  btn.style.padding = '10px';
+  btn.style.backgroundColor = '#007bff';
+  btn.style.color = 'white';
+  btn.style.border = 'none';
+  btn.style.cursor = 'pointer';
+  
+  newDiv.appendChild(btn);
+}
 </script>
-</head>
-<body>
 <div class="container">
-<button class="container" onclick="myFunction()">点击</button>
+<button class="container" onclick="addLoading()">点击</button>
 </div>
+<script>
+addBottom();
+</script>
 </body>
 </html>

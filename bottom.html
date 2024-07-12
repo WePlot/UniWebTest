@@ -2,17 +2,30 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Click Button Example</title>
-<script>
-// 定义JavaScript函数
-function myFunction() {
-
-}
-</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Popup Button</title>
+<style>
+  .popup-button-container {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .popup-button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+</style>
 </head>
 <body>
  
-<button onclick="myFunction()">点击</button>
+<div class="popup-button-container">
+  <button class="popup-button">点击我</button>
+</div>
  
 </body>
 </html>
